@@ -1,0 +1,221 @@
+{
+  "scenario": "concurrent",
+  "network": "studionet",
+  "chainId": 61999,
+  "contract": "0x85B483C43FF276901eeCD1D7975a549d07C1cc02",
+  "startedAt": "2026-10-21T01:14:35.918Z",
+  "actors": {
+    "builder": "0xb175B2C206aDa1E6E3fbB054aC66d3F06c4E8B42",
+    "backer": "0x968d082e4C5664097b1aB4126B6B0F0A0334A1fF",
+    "C": "0xA7F9b9D64292E229494c8fDBa565B3fc9A6cCB3E",
+    "D": "0xDF35932Fa9707a81100EDe18D4a9Ff268b50B201"
+  },
+  "steps": [
+    {
+      "step": "claim_points (builder)",
+      "actor": "builder",
+      "method": "claim_points",
+      "tx": "0x18556a6285b801d68a88b96846a9ba7c03f54ebd2bd3125307187db44a41f3c9",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x18556a6285b801d68a88b96846a9ba7c03f54ebd2bd3125307187db44a41f3c9",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 34,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "claim_points (backer)",
+      "actor": "backer",
+      "method": "claim_points",
+      "tx": "0x6ced62b78528589bdd6045b55b9d8503b777993988999b37cbebebc980aba222",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x6ced62b78528589bdd6045b55b9d8503b777993988999b37cbebebc980aba222",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 59,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "claim_points (C)",
+      "actor": "C",
+      "method": "claim_points",
+      "tx": "0x676a295da4f8d7eb2ffbb4b26872038cedd22b48296593f209a4881a5eb0e3d3",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x676a295da4f8d7eb2ffbb4b26872038cedd22b48296593f209a4881a5eb0e3d3",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 149,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "claim_points (D)",
+      "actor": "D",
+      "method": "claim_points",
+      "tx": "0x2976d0425697e564b80f9825d945e7388a71c39b6f4b1f6b112f658a2ce540a4",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x2976d0425697e564b80f9825d945e7388a71c39b6f4b1f6b112f658a2ce540a4",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 50,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "concurrent create (builder)",
+      "actor": "builder",
+      "method": "create_commitment",
+      "tx": "0xf28183f868e4d79332ac6ea4cceb0fce00fb839cd185012073bdf6572573951a",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xf28183f868e4d79332ac6ea4cceb0fce00fb839cd185012073bdf6572573951a",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 9,
+      "seconds": 178,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "concurrent create (D)",
+      "actor": "D",
+      "method": "create_commitment",
+      "tx": "0xc45f3868bf9291c1bbd2297fc6b817a86c4ee312cda67f2725e91cb0eab41cd9",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xc45f3868bf9291c1bbd2297fc6b817a86c4ee312cda67f2725e91cb0eab41cd9",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 10,
+      "seconds": 195,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "concurrent create (backer)",
+      "actor": "backer",
+      "method": "create_commitment",
+      "tx": "0x0a84fce99957f6f0eae0fe3067f18c027582e58681356903156dd7a0807ce214",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x0a84fce99957f6f0eae0fe3067f18c027582e58681356903156dd7a0807ce214",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 11,
+      "seconds": 207,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "concurrent create (C)",
+      "actor": "C",
+      "method": "create_commitment",
+      "tx": "0x47c61777fc7684161e9fe060b6a51818f0d75e1fbe6287e2dfde2624e28160d8",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x47c61777fc7684161e9fe060b6a51818f0d75e1fbe6287e2dfde2624e28160d8",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 12,
+      "seconds": 215,
+      "final_status": "FINALIZED"
+    }
+  ],
+  "checks": [
+    {
+      "check": "every creation returned an id from its own receipt",
+      "pass": true,
+      "detail": [
+        9,
+        11,
+        12,
+        10
+      ]
+    },
+    {
+      "check": "ids are distinct",
+      "pass": true,
+      "detail": [
+        9,
+        11,
+        12,
+        10
+      ]
+    },
+    {
+      "check": "ids are fresh (>= count before the burst)",
+      "pass": true,
+      "detail": {
+        "before": 8,
+        "ids": [
+          9,
+          11,
+          12,
+          10
+        ]
+      }
+    },
+    {
+      "check": "builder: id 9 is its own commitment and its newest",
+      "pass": true,
+      "detail": {
+        "id": 9
+      }
+    },
+    {
+      "check": "backer: id 11 is its own commitment and its newest",
+      "pass": true,
+      "detail": {
+        "id": 11
+      }
+    },
+    {
+      "check": "C: id 12 is its own commitment and its newest",
+      "pass": true,
+      "detail": {
+        "id": 12
+      }
+    },
+    {
+      "check": "D: id 10 is its own commitment and its newest",
+      "pass": true,
+      "detail": {
+        "id": 10
+      }
+    },
+    {
+      "check": "points conserved: balances + escrow + pool == minted",
+      "pass": true,
+      "detail": {
+        "balances": 19670,
+        "conserved": true,
+        "escrow": 2330,
+        "minted": 22000,
+        "pool": 0
+      }
+    }
+  ],
+  "stats": {
+    "builders": 12,
+    "by_status": {
+      "CHALLENGED": 0,
+      "FINAL": 0,
+      "JUDGED": 2,
+      "OPEN": 6,
+      "PROOF_SUBMITTED": 4,
+      "REJECTED": 1,
+      "VOID": 0
+    },
+    "commitments": 13,
+    "escrow": 2330,
+    "minted": 22000,
+    "pool": 0,
+    "users": 22
+  },
+  "finishedAt": "2026-10-21T01:23:51.637Z",
+  "all_finalized": true,
+  "all_checks_pass": true
+}

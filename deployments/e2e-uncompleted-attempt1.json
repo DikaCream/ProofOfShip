@@ -1,0 +1,157 @@
+{
+  "scenario": "uncompleted",
+  "network": "studionet",
+  "chainId": 61999,
+  "contract": "0x85B483C43FF276901eeCD1D7975a549d07C1cc02",
+  "startedAt": "2026-10-21T01:14:31.884Z",
+  "actors": {
+    "builder": "0xe0AB4EE1Ce4fB4eA6Ff69c7fC176365a2F782500",
+    "backer": "0xc49dd4D4724566Ef1e361755F115B7f9265d47dA"
+  },
+  "steps": [
+    {
+      "step": "claim_points (builder)",
+      "actor": "builder",
+      "method": "claim_points",
+      "tx": "0x029972ab39c166c73cc69429db4cf38df9e83ace1238c2609096f144519f6b35",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x029972ab39c166c73cc69429db4cf38df9e83ace1238c2609096f144519f6b35",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 21
+    },
+    {
+      "step": "claim_points (backer)",
+      "actor": "backer",
+      "method": "claim_points",
+      "tx": "0xcaeb4739bd64beecac432cf24570fd2aea8002dbbcaacc5389775934291e6caa",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xcaeb4739bd64beecac432cf24570fd2aea8002dbbcaacc5389775934291e6caa",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 54
+    },
+    {
+      "step": "create_commitment: Ship tally CLI v1.0 (uncompleted challenge)",
+      "actor": "builder",
+      "method": "create_commitment",
+      "tx": "0xe41c790ef0877cd606548e1b00a5586defe247630ef00cc32e796f9a113cef1d",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xe41c790ef0877cd606548e1b00a5586defe247630ef00cc32e796f9a113cef1d",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 6,
+      "seconds": 125
+    },
+    {
+      "step": "back 200 points",
+      "actor": "backer",
+      "method": "back",
+      "tx": "0x9eb1d80203c0c2eb545547cfba6ae6b63fbc0dea3a0bab5da33c9cfd9863e150",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x9eb1d80203c0c2eb545547cfba6ae6b63fbc0dea3a0bab5da33c9cfd9863e150",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 6,
+      "seconds": 75
+    },
+    {
+      "step": "submit_proof",
+      "actor": "builder",
+      "method": "submit_proof",
+      "tx": "0x7aa4ee9d3262410cb84ba10bb465d8e4f3925099e789931983b075e4fc2349f3",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x7aa4ee9d3262410cb84ba10bb465d8e4f3925099e789931983b075e4fc2349f3",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 6,
+      "seconds": 120
+    },
+    {
+      "step": "judge (attempt 1)",
+      "actor": "builder",
+      "method": "judge",
+      "tx": "0xe5e5ba477e6070dadd371e0a1271ec3be7e3063376956bdc6dba03f830de1ef7",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xe5e5ba477e6070dadd371e0a1271ec3be7e3063376956bdc6dba03f830de1ef7",
+      "status": "ACCEPTED",
+      "execution": "ERROR",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 171,
+      "note": "undetermined/reverted attempt, retried"
+    },
+    {
+      "step": "judge (attempt 2)",
+      "actor": "builder",
+      "method": "judge",
+      "tx": "0xe277154e4978f305512cee26b922960a3ce9511a706d16f2ba1e4bbfceb2460b",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xe277154e4978f305512cee26b922960a3ce9511a706d16f2ba1e4bbfceb2460b",
+      "status": "ACCEPTED",
+      "execution": "ERROR",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 50,
+      "note": "undetermined/reverted attempt, retried"
+    },
+    {
+      "step": "judge (attempt 3)",
+      "actor": "builder",
+      "method": "judge",
+      "tx": "0xdb7fc2c317c37e30929f18174d5fa521856ec5b9c31a2f00ff9f68c13de1ab96",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xdb7fc2c317c37e30929f18174d5fa521856ec5b9c31a2f00ff9f68c13de1ab96",
+      "status": "ACCEPTED",
+      "execution": "ERROR",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 129,
+      "note": "undetermined/reverted attempt, retried"
+    }
+  ],
+  "checks": [
+    {
+      "check": "receipt returns the commitment id",
+      "pass": true,
+      "detail": {
+        "id": 6
+      }
+    },
+    {
+      "check": "commitment 6 belongs to builder",
+      "pass": true,
+      "detail": {
+        "status": "OPEN",
+        "reject": ""
+      }
+    },
+    {
+      "check": "proof snapshotted (sha256 + full stored text + truncation flag)",
+      "pass": true,
+      "detail": [
+        {
+          "url": "OfShip/main/docs/evidence/ship/readme.md",
+          "sha256": "c2659c0fa112",
+          "immutable": false
+        },
+        {
+          "url": "/main/docs/evidence/partial/changelog.md",
+          "sha256": "33cd2e7ae2a4",
+          "immutable": false
+        }
+      ]
+    },
+    {
+      "check": "judge succeeded",
+      "pass": false
+    }
+  ]
+}

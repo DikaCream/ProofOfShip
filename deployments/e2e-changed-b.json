@@ -1,0 +1,250 @@
+{
+  "scenario": "changed-b",
+  "network": "studionet",
+  "chainId": 61999,
+  "contract": "0x85B483C43FF276901eeCD1D7975a549d07C1cc02",
+  "startedAt": "2026-10-21T01:31:10.658Z",
+  "actors": {
+    "builder": "0xBb9E609bf277a0Ffb0018515d0a850037C2b17c3",
+    "backer": "0x4114320e6217407814992C42DC4573ea85A00b60"
+  },
+  "steps": [
+    {
+      "step": "create_commitment: Ship tally CLI v1.0 (page swap test)",
+      "actor": "builder",
+      "method": "create_commitment",
+      "tx": "0x24ff5b1852c0a2f5dddf9cd79e7328aa0b8397e3bb5eca881a734ff4bfe7ce78",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x24ff5b1852c0a2f5dddf9cd79e7328aa0b8397e3bb5eca881a734ff4bfe7ce78",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 13,
+      "seconds": 13,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "back 100 points",
+      "actor": "backer",
+      "method": "back",
+      "tx": "0x090159d6f12accce2e72aa7370c2799b1aa82cf78798af0ac15b0eb7f28440e5",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x090159d6f12accce2e72aa7370c2799b1aa82cf78798af0ac15b0eb7f28440e5",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 13,
+      "seconds": 9,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "submit_proof (version 1 page)",
+      "actor": "builder",
+      "method": "submit_proof",
+      "tx": "0x2a3fca5234abdb5b0a945aae1f3a4546bb9a45c16ee2aa9fbeec6054cceb77d4",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x2a3fca5234abdb5b0a945aae1f3a4546bb9a45c16ee2aa9fbeec6054cceb77d4",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 13,
+      "seconds": 13,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "judge (attempt 1)",
+      "actor": "builder",
+      "method": "judge",
+      "tx": "0x61303ab0a3eaf218f987b840e0799385ee31e455809339c916f5bbcb078c7426",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x61303ab0a3eaf218f987b840e0799385ee31e455809339c916f5bbcb078c7426",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 13,
+      "seconds": 34,
+      "final_status": "FINALIZED"
+    }
+  ],
+  "checks": [
+    {
+      "check": "receipt returns the commitment id",
+      "pass": true,
+      "detail": {
+        "id": 13
+      }
+    },
+    {
+      "check": "commitment 13 belongs to builder",
+      "pass": true,
+      "detail": {
+        "status": "OPEN",
+        "reject": ""
+      }
+    },
+    {
+      "check": "snapshot holds version 1 text",
+      "pass": true,
+      "detail": {
+        "sha256": "35241c028d28df11d30ae12fcae399f7b1cf2fc7d3d5cf772a33f3a173a083b4"
+      }
+    },
+    {
+      "check": "live page now differs from the snapshot (version 2 is live)",
+      "pass": true,
+      "detail": "# tally-cli 1.0.0 status page (version 2)\n\nThis file is a stable test fixture fo"
+    },
+    {
+      "check": "judge succeeded",
+      "pass": true
+    },
+    {
+      "check": "verdict flagged evidence_changed and lists the URL",
+      "pass": true,
+      "detail": {
+        "flagged": true,
+        "changed": [
+          "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/changed/proof-b.md"
+        ]
+      }
+    },
+    {
+      "check": "swapped page did not win: JSON criterion not MET (stored v1 says postponed)",
+      "pass": true,
+      "detail": {
+        "verdict": "PARTIAL",
+        "findings": [
+          [
+            "MET",
+            "Shipped: the tally export command writes a CSV file named ta"
+          ],
+          [
+            "NOT_MET",
+            "Not shipped: the --json flag was postponed and is not includ"
+          ],
+          [
+            "MET",
+            "Shipped: the README documents installation with npm (npm ins"
+          ]
+        ]
+      }
+    },
+    {
+      "check": "no quote comes from the version-2 text",
+      "pass": true
+    },
+    {
+      "check": "points conserved: balances + escrow + pool == minted",
+      "pass": true,
+      "detail": {
+        "balances": 22520,
+        "conserved": true,
+        "escrow": 1180,
+        "minted": 24000,
+        "pool": 300
+      }
+    }
+  ],
+  "id": 13,
+  "snapshot": {
+    "immutable": false,
+    "sha256": "35241c028d28df11d30ae12fcae399f7b1cf2fc7d3d5cf772a33f3a173a083b4",
+    "text": "# tally-cli 1.0.0 status page (version 1) This file is a stable test fixture for ProofOfShip. - Shipped: the tally export command writes a CSV file named tally-export.csv to the current folder. - Not shipped: the --json flag was postponed and is not included in 1.0.0. - Shipped: the README documents installation with npm (npm install -g tally-cli).",
+    "truncated": false,
+    "url": "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/changed/proof-b.md",
+    "who": "BUILDER PROOF"
+  },
+  "commitment": {
+    "back_until": 1792548073,
+    "backed": 100,
+    "backers": 1,
+    "backing_open": false,
+    "bond_note": "",
+    "builder": "0xBb9E609bf277a0Ffb0018515d0a850037C2b17c3",
+    "challenge_attempts": 0,
+    "challenge_due": 0,
+    "challenge_ends": 1792550282,
+    "challenge_grounds": "",
+    "challenge_open": true,
+    "challenge_result": "",
+    "challenge_undetermined": 0,
+    "challenge_url": "",
+    "challenged_at": 0,
+    "challenger": "",
+    "created_at": 1792546273,
+    "criteria": [
+      "The tally export command writes a CSV file",
+      "A --json flag prints the export as JSON",
+      "The README documents installation with npm"
+    ],
+    "criteria_count": 3,
+    "deadline": 1792549873,
+    "deliverable": "A command line tool called tally-cli that exports time logs to CSV and JSON, published with npm install documentation.",
+    "evidence_changed": true,
+    "final_at": 0,
+    "first_verdict": "PARTIAL",
+    "id": 13,
+    "judge_due": 1792549895,
+    "now": 1792546716,
+    "outcome": "",
+    "proof_at": 1792546295,
+    "proof_type": "REPO",
+    "proof_urls": [
+      "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/changed/proof-b.md"
+    ],
+    "reject_reason": "",
+    "review_window": 3600,
+    "rounds": 1,
+    "settlement": "",
+    "stake": 100,
+    "status": "JUDGED",
+    "title": "Ship tally CLI v1.0 (page swap test)",
+    "verdict": "PARTIAL",
+    "verdict_at": 1792546682
+  },
+  "rounds": [
+    {
+      "caller": "0xBb9E609bf277a0Ffb0018515d0a850037C2b17c3",
+      "changed": [
+        "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/changed/proof-b.md"
+      ],
+      "findings": [
+        {
+          "criterion": 0,
+          "fact": "The source explicitly states the tally export command writes a CSV file.",
+          "quote": "Shipped: the tally export command writes a CSV file named tally-export.csv to the current folder.",
+          "source": 0,
+          "status": "MET",
+          "url": "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/changed/proof-b.md"
+        },
+        {
+          "criterion": 1,
+          "fact": "The source explicitly says the --json flag was postponed and not included.",
+          "quote": "Not shipped: the --json flag was postponed and is not included in 1.0.0.",
+          "source": 0,
+          "status": "NOT_MET",
+          "url": "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/changed/proof-b.md"
+        },
+        {
+          "criterion": 2,
+          "fact": "The source explicitly states the README includes npm installation documentation.",
+          "quote": "Shipped: the README documents installation with npm (npm install -g tally-cli).",
+          "source": 0,
+          "status": "MET",
+          "url": "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/changed/proof-b.md"
+        }
+      ],
+      "incomplete": [],
+      "kind": "INITIAL",
+      "reasoning": "The single provided repository proof directly addresses all three locked criteria. Two are stated as shipped, while the JSON flag is explicitly stated as not shipped.",
+      "sources": [
+        "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/changed/proof-b.md"
+      ],
+      "timestamp": 1792546682,
+      "verdict": "PARTIAL"
+    }
+  ],
+  "finishedAt": "2026-10-21T01:39:10.184Z",
+  "all_finalized": true,
+  "all_checks_pass": true
+}

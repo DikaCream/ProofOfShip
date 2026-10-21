@@ -1,0 +1,305 @@
+{
+  "scenario": "changed",
+  "network": "studionet",
+  "chainId": 61999,
+  "contract": "0x85B483C43FF276901eeCD1D7975a549d07C1cc02",
+  "startedAt": "2026-10-21T01:15:15.982Z",
+  "actors": {
+    "builder": "0xBb9E609bf277a0Ffb0018515d0a850037C2b17c3",
+    "backer": "0x4114320e6217407814992C42DC4573ea85A00b60"
+  },
+  "steps": [
+    {
+      "step": "claim_points (builder)",
+      "actor": "builder",
+      "method": "claim_points",
+      "tx": "0xc7adedcbf3b29876e7a74034f281bdbd4cef3228441d6a7ac86d21f7820b87ab",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xc7adedcbf3b29876e7a74034f281bdbd4cef3228441d6a7ac86d21f7820b87ab",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 79,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "claim_points (backer)",
+      "actor": "backer",
+      "method": "claim_points",
+      "tx": "0x894c732bdc0d1907acff27c40f272a2cc01d1fc0a1ad32234e58a26eca3aba6d",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x894c732bdc0d1907acff27c40f272a2cc01d1fc0a1ad32234e58a26eca3aba6d",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 132,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "create_commitment: Ship tally CLI v1.0 (page swap test)",
+      "actor": "builder",
+      "method": "create_commitment",
+      "tx": "0x3c5de47d6f1870cc136f2636b4c68cb7cf1d46bcdad243054bbc785611d6d5be",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x3c5de47d6f1870cc136f2636b4c68cb7cf1d46bcdad243054bbc785611d6d5be",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 8,
+      "seconds": 62,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "back 100 points",
+      "actor": "backer",
+      "method": "back",
+      "tx": "0xd4db32eac04d909763f19a8793824684d5e14d0b74790ec1fbcb8cdd320d0ff0",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xd4db32eac04d909763f19a8793824684d5e14d0b74790ec1fbcb8cdd320d0ff0",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 8,
+      "seconds": 203,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "submit_proof (version 1 page)",
+      "actor": "builder",
+      "method": "submit_proof",
+      "tx": "0x0b287dbe8255e84ea39cde932a0415c0488372b571efae61dbbdda6d92b815d5",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x0b287dbe8255e84ea39cde932a0415c0488372b571efae61dbbdda6d92b815d5",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 8,
+      "seconds": 75,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "judge (attempt 1)",
+      "actor": "builder",
+      "method": "judge",
+      "tx": "0x913db1d62cf0420e36544c96e3d4daadfbcd89c35a2ce46d93ce60b7740b830a",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x913db1d62cf0420e36544c96e3d4daadfbcd89c35a2ce46d93ce60b7740b830a",
+      "status": "ACCEPTED",
+      "execution": "ERROR",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 5,
+      "note": "undetermined/reverted attempt, retried",
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "judge (attempt 2)",
+      "actor": "builder",
+      "method": "judge",
+      "tx": "0xf5947b91f36a82a6f5fd4dbafc4aebdd922e85427a85612d8399e7ba6e1c54d2",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xf5947b91f36a82a6f5fd4dbafc4aebdd922e85427a85612d8399e7ba6e1c54d2",
+      "status": "ACCEPTED",
+      "execution": "ERROR",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 9,
+      "note": "undetermined/reverted attempt, retried",
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "judge (attempt 3)",
+      "actor": "builder",
+      "method": "judge",
+      "tx": "0x5ed6027d7246026ccf8d69be35713887552fc515dcf21c3d0628b96155c88018",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x5ed6027d7246026ccf8d69be35713887552fc515dcf21c3d0628b96155c88018",
+      "status": "ACCEPTED",
+      "execution": "ERROR",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 9,
+      "note": "undetermined/reverted attempt, retried",
+      "final_status": "FINALIZED"
+    }
+  ],
+  "checks": [
+    {
+      "check": "receipt returns the commitment id",
+      "pass": true,
+      "detail": {
+        "id": 8
+      }
+    },
+    {
+      "check": "commitment 8 belongs to builder",
+      "pass": true,
+      "detail": {
+        "status": "OPEN",
+        "reject": ""
+      }
+    },
+    {
+      "check": "snapshot holds version 1 text",
+      "pass": true,
+      "detail": {
+        "sha256": "35241c028d28df11d30ae12fcae399f7b1cf2fc7d3d5cf772a33f3a173a083b4"
+      }
+    },
+    {
+      "check": "live page now differs from the snapshot (version 2 is live)",
+      "pass": true,
+      "detail": "# tally-cli 1.0.0 status page (version 2)\n\nThis file is a stable test fixture fo"
+    },
+    {
+      "check": "judge succeeded",
+      "pass": false
+    },
+    {
+      "check": "verdict flagged evidence_changed and lists the URL",
+      "pass": false,
+      "detail": {
+        "flagged": false,
+        "changed": []
+      }
+    },
+    {
+      "check": "swapped page did not win: JSON criterion not MET (stored v1 says postponed)",
+      "pass": true,
+      "detail": {
+        "verdict": "PARTIAL",
+        "findings": [
+          [
+            "MET",
+            "Shipped: the tally export command writes a CSV file named ta"
+          ],
+          [
+            "NOT_MET",
+            "Not shipped: the --json flag was postponed and is not includ"
+          ],
+          [
+            "MET",
+            "Shipped: the README documents installation with npm (npm ins"
+          ]
+        ]
+      }
+    },
+    {
+      "check": "no quote comes from the version-2 text",
+      "pass": true
+    },
+    {
+      "check": "points conserved: balances + escrow + pool == minted",
+      "pass": true,
+      "detail": {
+        "balances": 21220,
+        "conserved": true,
+        "escrow": 580,
+        "minted": 22000,
+        "pool": 200
+      }
+    }
+  ],
+  "id": 8,
+  "snapshot": {
+    "immutable": false,
+    "sha256": "35241c028d28df11d30ae12fcae399f7b1cf2fc7d3d5cf772a33f3a173a083b4",
+    "text": "# tally-cli 1.0.0 status page (version 1) This file is a stable test fixture for ProofOfShip. - Shipped: the tally export command writes a CSV file named tally-export.csv to the current folder. - Not shipped: the --json flag was postponed and is not included in 1.0.0. - Shipped: the README documents installation with npm (npm install -g tally-cli).",
+    "truncated": false,
+    "url": "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/changed/proof.md",
+    "who": "BUILDER PROOF"
+  },
+  "commitment": {
+    "back_until": 1792547329,
+    "backed": 100,
+    "backers": 1,
+    "backing_open": false,
+    "bond_note": "",
+    "builder": "0xBb9E609bf277a0Ffb0018515d0a850037C2b17c3",
+    "challenge_attempts": 0,
+    "challenge_due": 0,
+    "challenge_ends": 1792549583,
+    "challenge_grounds": "",
+    "challenge_open": true,
+    "challenge_result": "",
+    "challenge_undetermined": 0,
+    "challenge_url": "",
+    "challenged_at": 0,
+    "challenger": "",
+    "created_at": 1792545529,
+    "criteria": [
+      "The tally export command writes a CSV file",
+      "A --json flag prints the export as JSON",
+      "The README documents installation with npm"
+    ],
+    "criteria_count": 3,
+    "deadline": 1792549129,
+    "deliverable": "A command line tool called tally-cli that exports time logs to CSV and JSON, published with npm install documentation.",
+    "evidence_changed": false,
+    "final_at": 0,
+    "first_verdict": "PARTIAL",
+    "id": 8,
+    "judge_due": 1792549396,
+    "now": 1792546203,
+    "outcome": "",
+    "proof_at": 1792545796,
+    "proof_type": "REPO",
+    "proof_urls": [
+      "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/changed/proof.md"
+    ],
+    "reject_reason": "",
+    "review_window": 3600,
+    "rounds": 1,
+    "settlement": "",
+    "stake": 100,
+    "status": "JUDGED",
+    "title": "Ship tally CLI v1.0 (page swap test)",
+    "verdict": "PARTIAL",
+    "verdict_at": 1792545983
+  },
+  "rounds": [
+    {
+      "caller": "0xBb9E609bf277a0Ffb0018515d0a850037C2b17c3",
+      "changed": [],
+      "findings": [
+        {
+          "criterion": 0,
+          "fact": "The export command creates a CSV file in the current directory.",
+          "quote": "Shipped: the tally export command writes a CSV file named tally-export.csv to the current folder.",
+          "source": 0,
+          "status": "MET",
+          "url": "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/changed/proof.md"
+        },
+        {
+          "criterion": 1,
+          "fact": "The --json flag is not present in version 1.0.0.",
+          "quote": "Not shipped: the --json flag was postponed and is not included in 1.0.0.",
+          "source": 0,
+          "status": "NOT_MET",
+          "url": "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/changed/proof.md"
+        },
+        {
+          "criterion": 2,
+          "fact": "The README includes npm install instructions.",
+          "quote": "Shipped: the README documents installation with npm (npm install -g tally-cli).",
+          "source": 0,
+          "status": "MET",
+          "url": "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/changed/proof.md"
+        }
+      ],
+      "incomplete": [],
+      "kind": "INITIAL",
+      "reasoning": "The source explicitly states that the CSV export is shipped and that the README includes npm installation instructions, confirming criteria 0 and 2. It also clearly notes that the --json flag was postponed, so criterion 1 is not met.",
+      "sources": [
+        "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/changed/proof.md"
+      ],
+      "timestamp": 1792545983,
+      "verdict": "PARTIAL"
+    }
+  ],
+  "finishedAt": "2026-10-21T01:30:37.938Z",
+  "all_finalized": true,
+  "all_checks_pass": false
+}

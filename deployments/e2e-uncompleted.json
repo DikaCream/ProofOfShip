@@ -1,0 +1,239 @@
+{
+  "scenario": "uncompleted",
+  "network": "studionet",
+  "chainId": 61999,
+  "contract": "0x85B483C43FF276901eeCD1D7975a549d07C1cc02",
+  "startedAt": "2026-10-21T01:31:25.864Z",
+  "actors": {
+    "builder": "0x87DFd587921F79938290Eb385fE6B86959668db8",
+    "backer": "0x8EE873778463E53373Ce7ba4bcb9d881CC710e99"
+  },
+  "steps": [
+    {
+      "step": "claim_points (builder)",
+      "actor": "builder",
+      "method": "claim_points",
+      "tx": "0x78e583507ed77e441b28f46eb33065dfc8927591f1fac35c5913d8a07c087cd0",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x78e583507ed77e441b28f46eb33065dfc8927591f1fac35c5913d8a07c087cd0",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 9,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "claim_points (backer)",
+      "actor": "backer",
+      "method": "claim_points",
+      "tx": "0x55bfd0a01448f87ed7a41501affcc882bf78d9aa2a043d8f0b5747e68be3bb37",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x55bfd0a01448f87ed7a41501affcc882bf78d9aa2a043d8f0b5747e68be3bb37",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 13,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "create_commitment: Ship tally CLI v1.0 (uncompleted challenge)",
+      "actor": "builder",
+      "method": "create_commitment",
+      "tx": "0x67332f6652ec29ebd65339b63b407b70037885b776448159af34da45dbbbba2f",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x67332f6652ec29ebd65339b63b407b70037885b776448159af34da45dbbbba2f",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 14,
+      "seconds": 17,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "back 200 points",
+      "actor": "backer",
+      "method": "back",
+      "tx": "0x9d4bb72966df7b61c8448f44daf39bf886e73dffe1400e77a09a1e4c6e200036",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x9d4bb72966df7b61c8448f44daf39bf886e73dffe1400e77a09a1e4c6e200036",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 14,
+      "seconds": 5,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "submit_proof",
+      "actor": "builder",
+      "method": "submit_proof",
+      "tx": "0x26e6a087b5bba8e0a2faef676e8785f213c6d4a4ffe920258c433807eedd7ff1",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x26e6a087b5bba8e0a2faef676e8785f213c6d4a4ffe920258c433807eedd7ff1",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 14,
+      "seconds": 13,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "judge (attempt 1)",
+      "actor": "builder",
+      "method": "judge",
+      "tx": "0xd21ba7b79f7dc40db6d3c19508791e88f470d50ed47b0d10a168341e3fbe9481",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xd21ba7b79f7dc40db6d3c19508791e88f470d50ed47b0d10a168341e3fbe9481",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 14,
+      "seconds": 17,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "backer challenges, then nobody runs rule_challenge",
+      "actor": "backer",
+      "method": "challenge",
+      "tx": "0xe0a15bb3f6b75ab929e9e0a5fdd078a309cf53564458b7cdae91590bb1b14309",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xe0a15bb3f6b75ab929e9e0a5fdd078a309cf53564458b7cdae91590bb1b14309",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 14,
+      "seconds": 9,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "rule_challenge after the deadline reverts",
+      "actor": "builder",
+      "method": "rule_challenge",
+      "tx": "0x41de22a68193ca9099e52dbbdfe279dd4c876c5a995c4d6c3d0153614cdb209b",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x41de22a68193ca9099e52dbbdfe279dd4c876c5a995c4d6c3d0153614cdb209b",
+      "status": "ACCEPTED",
+      "execution": "ERROR",
+      "ok": true,
+      "expected": "revert",
+      "returned_id": null,
+      "seconds": 21,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "finalize (anyone applies the finality rules)",
+      "actor": "builder",
+      "method": "finalize",
+      "tx": "0x9c33839aa2512dfeba3cc5a3152ea3c874b1da2511b334ada62ebf89bbdcc445",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x9c33839aa2512dfeba3cc5a3152ea3c874b1da2511b334ada62ebf89bbdcc445",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 14,
+      "seconds": 29,
+      "final_status": "FINALIZED"
+    }
+  ],
+  "checks": [
+    {
+      "check": "receipt returns the commitment id",
+      "pass": true,
+      "detail": {
+        "id": 14
+      }
+    },
+    {
+      "check": "commitment 14 belongs to builder",
+      "pass": true,
+      "detail": {
+        "status": "OPEN",
+        "reject": ""
+      }
+    },
+    {
+      "check": "proof snapshotted (sha256 + full stored text + truncation flag)",
+      "pass": true,
+      "detail": [
+        {
+          "url": "OfShip/main/docs/evidence/ship/readme.md",
+          "sha256": "c2659c0fa112",
+          "immutable": false
+        },
+        {
+          "url": "/main/docs/evidence/partial/changelog.md",
+          "sha256": "33cd2e7ae2a4",
+          "immutable": false
+        }
+      ]
+    },
+    {
+      "check": "judge succeeded",
+      "pass": true
+    },
+    {
+      "check": "structured per-criterion findings stored (one per locked criterion, MET carries a verbatim quote)",
+      "pass": true,
+      "detail": [
+        [
+          "MET",
+          "Shipped: the tally export command writes a CSV fil"
+        ],
+        [
+          "NOT_MET",
+          "Not shipped: the --json flag was postponed to vers"
+        ],
+        [
+          "MET",
+          "Install: run npm install -g tally-cli to install t"
+        ]
+      ]
+    },
+    {
+      "check": "first verdict stands, challenge UNRESOLVED, bond FORFEITED",
+      "pass": true,
+      "detail": {
+        "first": "PARTIAL",
+        "final": "PARTIAL",
+        "result": "UNRESOLVED",
+        "bond": "FORFEITED"
+      }
+    },
+    {
+      "check": "points conserved: balances + escrow + pool == minted",
+      "pass": true,
+      "detail": {
+        "balances": 22820,
+        "conserved": true,
+        "escrow": 780,
+        "minted": 24000,
+        "pool": 400
+      }
+    }
+  ],
+  "balanceDelta": {
+    "A": 100,
+    "B": -200
+  },
+  "stats": {
+    "builders": 13,
+    "by_status": {
+      "CHALLENGED": 0,
+      "FINAL": 8,
+      "JUDGED": 2,
+      "OPEN": 4,
+      "PROOF_SUBMITTED": 1,
+      "REJECTED": 1,
+      "VOID": 0
+    },
+    "commitments": 16,
+    "escrow": 780,
+    "minted": 24000,
+    "pool": 400,
+    "users": 24
+  },
+  "finishedAt": "2026-10-21T01:39:22.574Z",
+  "all_finalized": true,
+  "all_checks_pass": true
+}

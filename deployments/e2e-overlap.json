@@ -1,0 +1,241 @@
+{
+  "scenario": "overlap",
+  "network": "studionet",
+  "chainId": 61999,
+  "contract": "0x85B483C43FF276901eeCD1D7975a549d07C1cc02",
+  "startedAt": "2026-10-21T01:14:33.898Z",
+  "actors": {
+    "builder": "0x96C27F5BdBEAD6c97fd018B1b9376dB4B14179A7",
+    "backer": "0x660C64B695Fc0F06F1b167D90715c0C4258CFEED"
+  },
+  "steps": [
+    {
+      "step": "claim_points (builder)",
+      "actor": "builder",
+      "method": "claim_points",
+      "tx": "0x8ff368a8a6382d4fecd39f77315e5875aea235a95be0f83258f60356ec1bd9a0",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x8ff368a8a6382d4fecd39f77315e5875aea235a95be0f83258f60356ec1bd9a0",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 25,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "claim_points (backer)",
+      "actor": "backer",
+      "method": "claim_points",
+      "tx": "0xcfa540491271286b89c0bf6258db87b62f689c59e8b2224524e5d48248054a73",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xcfa540491271286b89c0bf6258db87b62f689c59e8b2224524e5d48248054a73",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 55,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "create_commitment: Ship tally CLI v1.0 (overlap)",
+      "actor": "builder",
+      "method": "create_commitment",
+      "tx": "0x736837e0959b0ae4e033640d4ed79ef81b19f513ebb5dfb3ab820d95a3c0463c",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x736837e0959b0ae4e033640d4ed79ef81b19f513ebb5dfb3ab820d95a3c0463c",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 7,
+      "seconds": 145,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "back 200 points",
+      "actor": "backer",
+      "method": "back",
+      "tx": "0xa8301ddc83b3250b703e95946a3057817ee40132e183d7e4928acb70cfa1a8ab",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xa8301ddc83b3250b703e95946a3057817ee40132e183d7e4928acb70cfa1a8ab",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 7,
+      "seconds": 54,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "submit_proof",
+      "actor": "builder",
+      "method": "submit_proof",
+      "tx": "0xed1aec95ae5109c53e31400f4a72559bcab8965e13bc4c8522bcf5b493766262",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xed1aec95ae5109c53e31400f4a72559bcab8965e13bc4c8522bcf5b493766262",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 7,
+      "seconds": 124,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "judge (attempt 1)",
+      "actor": "builder",
+      "method": "judge",
+      "tx": "0x42adc9bf017bc4e547ece75619be1aa5d663588ec7041d8725a731ca34540ab4",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x42adc9bf017bc4e547ece75619be1aa5d663588ec7041d8725a731ca34540ab4",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 7,
+      "seconds": 174,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "challenge adds .../report-final#frag (path overlaps .../report)",
+      "actor": "backer",
+      "method": "challenge",
+      "tx": "0x0e88983a7050abfe2e920390fe6bbcbe8afe9359248cbe3e78d831bdab699abf",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x0e88983a7050abfe2e920390fe6bbcbe8afe9359248cbe3e78d831bdab699abf",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 7,
+      "seconds": 42,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "rule_challenge (attempt 1)",
+      "actor": "builder",
+      "method": "rule_challenge",
+      "tx": "0xcb58af7b9976d2f755704e43d5e8d4752c772c365221a9c3a353a2cd46c35021",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xcb58af7b9976d2f755704e43d5e8d4752c772c365221a9c3a353a2cd46c35021",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 7,
+      "seconds": 137,
+      "final_status": "FINALIZED"
+    }
+  ],
+  "checks": [
+    {
+      "check": "receipt returns the commitment id",
+      "pass": true,
+      "detail": {
+        "id": 7
+      }
+    },
+    {
+      "check": "commitment 7 belongs to builder",
+      "pass": true,
+      "detail": {
+        "status": "OPEN",
+        "reject": ""
+      }
+    },
+    {
+      "check": "proof snapshotted (sha256 + full stored text + truncation flag)",
+      "pass": true,
+      "detail": [
+        {
+          "url": "OfShip/main/docs/evidence/overlap/report",
+          "sha256": "4e7102577de5",
+          "immutable": false
+        }
+      ]
+    },
+    {
+      "check": "judge succeeded",
+      "pass": true
+    },
+    {
+      "check": "structured per-criterion findings stored (one per locked criterion, MET carries a verbatim quote)",
+      "pass": true,
+      "detail": [
+        [
+          "MET",
+          "The tally export command writes a CSV file named t"
+        ],
+        [
+          "MET",
+          "The --json flag prints the export as JSON on stand"
+        ],
+        [
+          "MET",
+          "The README documents installation with npm: npm in"
+        ]
+      ]
+    },
+    {
+      "check": "overlapping path stored as its own source, fragment stripped",
+      "pass": true,
+      "detail": "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/overlap/report-final"
+    },
+    {
+      "check": "two distinct snapshots (report, report-final)",
+      "pass": true,
+      "detail": [
+        [
+          "BUILDER PROOF",
+          "overlap/report"
+        ],
+        [
+          "CHALLENGER SOURCE",
+          "p/report-final"
+        ]
+      ]
+    },
+    {
+      "check": "rule_challenge succeeded",
+      "pass": true
+    },
+    {
+      "check": "round two sources contain report AND report-final",
+      "pass": true,
+      "detail": [
+        "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/overlap/report",
+        "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/overlap/report-final"
+      ]
+    },
+    {
+      "check": "FINAL",
+      "pass": true
+    },
+    {
+      "check": "points conserved: balances + escrow + pool == minted",
+      "pass": true,
+      "detail": {
+        "balances": 21220,
+        "conserved": true,
+        "escrow": 580,
+        "minted": 22000,
+        "pool": 200
+      }
+    }
+  ],
+  "stats": {
+    "builders": 12,
+    "by_status": {
+      "CHALLENGED": 0,
+      "FINAL": 6,
+      "JUDGED": 0,
+      "OPEN": 4,
+      "PROOF_SUBMITTED": 2,
+      "REJECTED": 1,
+      "VOID": 0
+    },
+    "commitments": 13,
+    "escrow": 580,
+    "minted": 22000,
+    "pool": 200,
+    "users": 22
+  },
+  "finishedAt": "2026-10-21T01:27:58.022Z",
+  "all_finalized": true,
+  "all_checks_pass": true
+}

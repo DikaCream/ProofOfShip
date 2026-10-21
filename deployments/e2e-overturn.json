@@ -1,0 +1,261 @@
+{
+  "scenario": "overturn",
+  "network": "studionet",
+  "chainId": 61999,
+  "contract": "0x85B483C43FF276901eeCD1D7975a549d07C1cc02",
+  "startedAt": "2026-10-21T01:14:27.933Z",
+  "actors": {
+    "builder": "0x6403A74E4B19bA2e2F8460a10D98F5369d956750",
+    "backer": "0x164f789941735702f991BCA545c37724a72A0ec4"
+  },
+  "steps": [
+    {
+      "step": "claim_points (builder)",
+      "actor": "builder",
+      "method": "claim_points",
+      "tx": "0xa211a1b369649ac926c6e2531f667e5b9e3c16e81cc439f94dfdde265a9e3800",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xa211a1b369649ac926c6e2531f667e5b9e3c16e81cc439f94dfdde265a9e3800",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 13,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "claim_points (backer)",
+      "actor": "backer",
+      "method": "claim_points",
+      "tx": "0x54bd036599d5b28ae37329109f680c3c84582f4379c66b4a7d29a8aaf139ab4d",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x54bd036599d5b28ae37329109f680c3c84582f4379c66b4a7d29a8aaf139ab4d",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 47,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "create_commitment: Ship tally CLI v1.0 (overturn)",
+      "actor": "builder",
+      "method": "create_commitment",
+      "tx": "0xffd904e4cacd6bbe299a87abf612260303e965695fcf1ad297bdc643078d4400",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xffd904e4cacd6bbe299a87abf612260303e965695fcf1ad297bdc643078d4400",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 4,
+      "seconds": 87,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "back 200 points",
+      "actor": "backer",
+      "method": "back",
+      "tx": "0xe2dc2ee10269867e87362d3591e189bc5ce69035308d66c57100f4e68c9c35f6",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xe2dc2ee10269867e87362d3591e189bc5ce69035308d66c57100f4e68c9c35f6",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 4,
+      "seconds": 112,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "submit_proof",
+      "actor": "builder",
+      "method": "submit_proof",
+      "tx": "0xe8b67b691ccc1d80bebc19f43bc173ac8bc84f686ff962ec4097b8f7e5bb6246",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xe8b67b691ccc1d80bebc19f43bc173ac8bc84f686ff962ec4097b8f7e5bb6246",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 4,
+      "seconds": 70,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "judge (attempt 1)",
+      "actor": "builder",
+      "method": "judge",
+      "tx": "0xaca90035d14364484e9278c35b4725234aac4bac35565d335496f8bd2abeefb7",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xaca90035d14364484e9278c35b4725234aac4bac35565d335496f8bd2abeefb7",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 4,
+      "seconds": 220,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "backer challenges with overturn/maintainer-notice.md#correction",
+      "actor": "backer",
+      "method": "challenge",
+      "tx": "0x94065adb6607b7223b2e822397de3b101bbdd25d31b0c22b54cf80724bbcf37e",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x94065adb6607b7223b2e822397de3b101bbdd25d31b0c22b54cf80724bbcf37e",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 4,
+      "seconds": 54,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "rule_challenge (attempt 1)",
+      "actor": "builder",
+      "method": "rule_challenge",
+      "tx": "0xf5df1909e85ac5bdda2b3c6c1810e3137f51f1ca5c617bf70374bdf31ddcd3f1",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xf5df1909e85ac5bdda2b3c6c1810e3137f51f1ca5c617bf70374bdf31ddcd3f1",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 4,
+      "seconds": 50,
+      "final_status": "FINALIZED"
+    }
+  ],
+  "checks": [
+    {
+      "check": "receipt returns the commitment id",
+      "pass": true,
+      "detail": {
+        "id": 4
+      }
+    },
+    {
+      "check": "commitment 4 belongs to builder",
+      "pass": true,
+      "detail": {
+        "status": "OPEN",
+        "reject": ""
+      }
+    },
+    {
+      "check": "proof snapshotted (sha256 + full stored text + truncation flag)",
+      "pass": true,
+      "detail": [
+        {
+          "url": "n/docs/evidence/overturn/announcement.md",
+          "sha256": "ae56f0864e46",
+          "immutable": false
+        }
+      ]
+    },
+    {
+      "check": "judge succeeded",
+      "pass": true
+    },
+    {
+      "check": "structured per-criterion findings stored (one per locked criterion, MET carries a verbatim quote)",
+      "pass": true,
+      "detail": [
+        [
+          "MET",
+          "The tally export command writes a CSV file to the "
+        ],
+        [
+          "MET",
+          "The --json flag prints the export as JSON on stand"
+        ],
+        [
+          "MET",
+          "The README documents installation with npm: npm in"
+        ]
+      ]
+    },
+    {
+      "check": "challenge source stored canonically (fragment stripped)",
+      "pass": true,
+      "detail": "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/overturn/maintainer-notice.md"
+    },
+    {
+      "check": "rule_challenge succeeded",
+      "pass": true
+    },
+    {
+      "check": "both rounds recorded, challenge source reached round two",
+      "pass": true,
+      "detail": [
+        "INITIAL:SHIPPED",
+        "CHALLENGE:PARTIAL"
+      ]
+    },
+    {
+      "check": "expected scenario: OVERTURNED, bond RETURNED",
+      "pass": true,
+      "detail": {
+        "first": "SHIPPED",
+        "final": "PARTIAL",
+        "result": "OVERTURNED"
+      }
+    },
+    {
+      "check": "criterion 1 (JSON flag) NOT_MET in round two",
+      "pass": true,
+      "detail": {
+        "criterion": 1,
+        "fact": "Source 1, labeled as an official maintainer notice, contradicts the blog post and confirms the JSON flag was not included in version 1.0.0.",
+        "quote": "Correction: the --json flag described in the launch blog post was removed before the release build and is NOT part of tally-cli 1.0.0.",
+        "source": 1,
+        "status": "NOT_MET",
+        "url": "https://raw.githubusercontent.com/DikaCream/ProofOfShip/main/docs/evidence/overturn/maintainer-notice.md"
+      }
+    },
+    {
+      "check": "points conserved: balances + escrow + pool == minted",
+      "pass": true,
+      "detail": {
+        "balances": 20220,
+        "conserved": true,
+        "escrow": 1780,
+        "minted": 22000,
+        "pool": 0
+      }
+    }
+  ],
+  "balanceDelta": {
+    "A": 100,
+    "B": -100
+  },
+  "reputation": {
+    "best_streak": 0,
+    "commitments": 1,
+    "inconclusive": 0,
+    "judged": 1,
+    "missed": 0,
+    "not_shipped": 0,
+    "partial": 1,
+    "score": 50,
+    "ship_rate_bps": 5000,
+    "shipped": 0,
+    "streak": 0
+  },
+  "stats": {
+    "builders": 12,
+    "by_status": {
+      "CHALLENGED": 3,
+      "FINAL": 3,
+      "JUDGED": 0,
+      "OPEN": 4,
+      "PROOF_SUBMITTED": 2,
+      "REJECTED": 1,
+      "VOID": 0
+    },
+    "commitments": 13,
+    "escrow": 1780,
+    "minted": 22000,
+    "pool": 0,
+    "users": 22
+  },
+  "finishedAt": "2026-10-21T01:26:10.851Z",
+  "all_finalized": true,
+  "all_checks_pass": true
+}

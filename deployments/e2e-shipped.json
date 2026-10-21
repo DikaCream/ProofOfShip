@@ -1,0 +1,272 @@
+{
+  "scenario": "shipped",
+  "network": "studionet",
+  "chainId": 61999,
+  "contract": "0x85B483C43FF276901eeCD1D7975a549d07C1cc02",
+  "startedAt": "2026-10-21T01:14:21.859Z",
+  "actors": {
+    "builder": "0xA6C619e37A6A2FDc161cE2cD2d60f86a1C78604e",
+    "backer": "0xf211Be0C487205C186c6655b936088705C066246"
+  },
+  "steps": [
+    {
+      "step": "claim_points (builder)",
+      "actor": "builder",
+      "method": "claim_points",
+      "tx": "0x6b52bafea782408f5c3a42957a26665459431a1f539d85526248b72983bb92bb",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x6b52bafea782408f5c3a42957a26665459431a1f539d85526248b72983bb92bb",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 9,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "claim_points (backer)",
+      "actor": "backer",
+      "method": "claim_points",
+      "tx": "0x3f99c1a54843c32ec2629604d7a952f525adbf432fd4b25e526906402c38d120",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x3f99c1a54843c32ec2629604d7a952f525adbf432fd4b25e526906402c38d120",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 17,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "create_commitment: Ship tally CLI v1.0 (pinned release)",
+      "actor": "builder",
+      "method": "create_commitment",
+      "tx": "0x1d2c9fe074941c72e4a65584d2b067890c17e56d2675bc7e46e564643e031300",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x1d2c9fe074941c72e4a65584d2b067890c17e56d2675bc7e46e564643e031300",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 1,
+      "seconds": 50,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "back 200 points",
+      "actor": "backer",
+      "method": "back",
+      "tx": "0x8ad5f07e6b8f101e6c50fb248ba2ad0fa91f35ec4f9ddf245470f88a2fe608f7",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x8ad5f07e6b8f101e6c50fb248ba2ad0fa91f35ec4f9ddf245470f88a2fe608f7",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 1,
+      "seconds": 113,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "submit_proof",
+      "actor": "builder",
+      "method": "submit_proof",
+      "tx": "0xe0f9302ccc95d4526ba11cbbebda0a4c20dd55bd77445cbc24ad42e1f9fff96c",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xe0f9302ccc95d4526ba11cbbebda0a4c20dd55bd77445cbc24ad42e1f9fff96c",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 1,
+      "seconds": 91,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "judge (attempt 1)",
+      "actor": "builder",
+      "method": "judge",
+      "tx": "0x02ab21c02f47bb82b222c4428eef9e0935f3a4ee75784d4dca541ec1f845c4d6",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x02ab21c02f47bb82b222c4428eef9e0935f3a4ee75784d4dca541ec1f845c4d6",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 1,
+      "seconds": 108,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "builder cannot challenge own SHIPPED verdict",
+      "actor": "builder",
+      "method": "challenge",
+      "tx": "0xf327d3f2110b6b13c857f833a23512a2c4bfd01ee009829d0023e1eab4448f4a",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xf327d3f2110b6b13c857f833a23512a2c4bfd01ee009829d0023e1eab4448f4a",
+      "status": "ACCEPTED",
+      "execution": "ERROR",
+      "ok": true,
+      "expected": "revert",
+      "returned_id": null,
+      "seconds": 182,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "backer challenges (no new source)",
+      "actor": "backer",
+      "method": "challenge",
+      "tx": "0x1ad9d82c2714c7847789dfc9ee3b675e826ed4e07655084896ff9960a20f508b",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x1ad9d82c2714c7847789dfc9ee3b675e826ed4e07655084896ff9960a20f508b",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 1,
+      "seconds": 50,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "rule_challenge (attempt 1)",
+      "actor": "builder",
+      "method": "rule_challenge",
+      "tx": "0x4d6c3430be4a6f6174d69d6852f002bd0c9f5969b3f374825c67b5ed5e907dad",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x4d6c3430be4a6f6174d69d6852f002bd0c9f5969b3f374825c67b5ed5e907dad",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 1,
+      "seconds": 125,
+      "final_status": "FINALIZED"
+    }
+  ],
+  "checks": [
+    {
+      "check": "receipt returns the commitment id",
+      "pass": true,
+      "detail": {
+        "id": 1
+      }
+    },
+    {
+      "check": "commitment 1 belongs to builder",
+      "pass": true,
+      "detail": {
+        "status": "OPEN",
+        "reject": ""
+      }
+    },
+    {
+      "check": "proof snapshotted (sha256 + full stored text + truncation flag)",
+      "pass": true,
+      "detail": [
+        {
+          "url": "8dab/docs/evidence/ship/release-notes.md",
+          "sha256": "ae3e7ba4efd1",
+          "immutable": true
+        },
+        {
+          "url": "618e9398dab/docs/evidence/ship/readme.md",
+          "sha256": "c2659c0fa112",
+          "immutable": true
+        }
+      ]
+    },
+    {
+      "check": "judge succeeded",
+      "pass": true
+    },
+    {
+      "check": "structured per-criterion findings stored (one per locked criterion, MET carries a verbatim quote)",
+      "pass": true,
+      "detail": [
+        [
+          "MET",
+          "The tally export command writes a CSV file named t"
+        ],
+        [
+          "MET",
+          "The new --json flag prints the export as JSON on s"
+        ],
+        [
+          "MET",
+          "Install: run npm install -g tally-cli to install t"
+        ]
+      ]
+    },
+    {
+      "check": "expected scenario: SHIPPED",
+      "pass": true,
+      "detail": "SHIPPED"
+    },
+    {
+      "check": "pinned raw URLs flagged immutable",
+      "pass": true
+    },
+    {
+      "check": "rule_challenge succeeded",
+      "pass": true
+    },
+    {
+      "check": "expected scenario: challenge UPHELD, bond FORFEITED to the pool",
+      "pass": true,
+      "detail": {
+        "result": "UPHELD",
+        "bond": "FORFEITED",
+        "verdict": "SHIPPED"
+      }
+    },
+    {
+      "check": "SHIPPED payout: builder +200 bounty (stake back), backer -200 -100 bond",
+      "pass": true,
+      "detail": {
+        "dA": 200,
+        "dB": -300
+      }
+    },
+    {
+      "check": "reputation: shipped 1, streak 1, ship rate 100%",
+      "pass": true,
+      "detail": {
+        "best_streak": 1,
+        "commitments": 1,
+        "inconclusive": 0,
+        "judged": 1,
+        "missed": 0,
+        "not_shipped": 0,
+        "partial": 0,
+        "score": 102,
+        "ship_rate_bps": 10000,
+        "shipped": 1,
+        "streak": 1
+      }
+    },
+    {
+      "check": "points conserved: balances + escrow + pool == minted",
+      "pass": true,
+      "detail": {
+        "balances": 20920,
+        "conserved": true,
+        "escrow": 980,
+        "minted": 22000,
+        "pool": 100
+      }
+    }
+  ],
+  "stats": {
+    "builders": 12,
+    "by_status": {
+      "CHALLENGED": 1,
+      "FINAL": 5,
+      "JUDGED": 0,
+      "OPEN": 4,
+      "PROOF_SUBMITTED": 2,
+      "REJECTED": 1,
+      "VOID": 0
+    },
+    "commitments": 13,
+    "escrow": 980,
+    "minted": 22000,
+    "pool": 100,
+    "users": 22
+  },
+  "finishedAt": "2026-10-21T01:27:52.384Z",
+  "all_finalized": true,
+  "all_checks_pass": true
+}

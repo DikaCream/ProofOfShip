@@ -1,0 +1,122 @@
+{
+  "scenario": "reject",
+  "network": "studionet",
+  "chainId": 61999,
+  "contract": "0x85B483C43FF276901eeCD1D7975a549d07C1cc02",
+  "startedAt": "2026-10-21T01:14:19.930Z",
+  "actors": {
+    "builder": "0xc128e6986E97f837bF659b74Da7e91AC944a6861",
+    "backer": "0x5D1C39A14a6a3504031BBBb7496D5e969Be26C55"
+  },
+  "steps": [
+    {
+      "step": "claim_points (builder)",
+      "actor": "builder",
+      "method": "claim_points",
+      "tx": "0x9510aa05440acc0a79c88b828ca2ecebd5154fe84f3b49cf9cf17aed17893d69",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x9510aa05440acc0a79c88b828ca2ecebd5154fe84f3b49cf9cf17aed17893d69",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 5,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "claim_points (backer)",
+      "actor": "backer",
+      "method": "claim_points",
+      "tx": "0x30d3f8a88f81c1d9152b080d84ca3d4fcc6b127a05a2eee665aeb99e9f949809",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x30d3f8a88f81c1d9152b080d84ca3d4fcc6b127a05a2eee665aeb99e9f949809",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": null,
+      "seconds": 13,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "create_commitment with vague criteria",
+      "actor": "builder",
+      "method": "create_commitment",
+      "tx": "0xb3618e8d8961fb55b66e98bb2106b5f7c84a0ef5abc6fe9750d6f26dd498edb0",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xb3618e8d8961fb55b66e98bb2106b5f7c84a0ef5abc6fe9750d6f26dd498edb0",
+      "status": "ACCEPTED",
+      "execution": "SUCCESS",
+      "ok": true,
+      "expected": "success",
+      "returned_id": 0,
+      "seconds": 42,
+      "final_status": "FINALIZED"
+    },
+    {
+      "step": "submit_proof on a rejected commitment reverts",
+      "actor": "builder",
+      "method": "submit_proof",
+      "tx": "0xa367f6fe618ab8638d14c08e60582c84a5a42057149df6d6d34e976713e4f99b",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xa367f6fe618ab8638d14c08e60582c84a5a42057149df6d6d34e976713e4f99b",
+      "status": "ACCEPTED",
+      "execution": "ERROR",
+      "ok": true,
+      "expected": "revert",
+      "returned_id": null,
+      "seconds": 75,
+      "final_status": "FINALIZED"
+    }
+  ],
+  "checks": [
+    {
+      "check": "AI screen REJECTED the commitment",
+      "pass": true,
+      "detail": {
+        "status": "REJECTED",
+        "reason": "Vague deliverable and subjective criteria"
+      }
+    },
+    {
+      "check": "no stake taken",
+      "pass": true,
+      "detail": {
+        "before": 1000,
+        "after": 1000
+      }
+    },
+    {
+      "check": "no reputation entry for a rejected commitment",
+      "pass": true
+    },
+    {
+      "check": "points conserved: balances + escrow + pool == minted",
+      "pass": true,
+      "detail": {
+        "balances": 18700,
+        "conserved": true,
+        "escrow": 300,
+        "minted": 19000,
+        "pool": 0
+      }
+    }
+  ],
+  "stats": {
+    "builders": 3,
+    "by_status": {
+      "CHALLENGED": 0,
+      "FINAL": 0,
+      "JUDGED": 0,
+      "OPEN": 3,
+      "PROOF_SUBMITTED": 0,
+      "REJECTED": 1,
+      "VOID": 0
+    },
+    "commitments": 4,
+    "escrow": 300,
+    "minted": 19000,
+    "pool": 0,
+    "users": 19
+  },
+  "finishedAt": "2026-10-21T01:17:31.251Z",
+  "all_finalized": true,
+  "all_checks_pass": true
+}

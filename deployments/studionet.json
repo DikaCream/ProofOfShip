@@ -1,0 +1,13 @@
+{
+  "network": "studionet",
+  "chainId": 61999,
+  "rpc": "https://studio.genlayer.com/api",
+  "explorer": "https://explorer-studio.genlayer.com",
+  "contractAddress": "0x85B483C43FF276901eeCD1D7975a549d07C1cc02",
+  "deployTxHash": "0x53897bfd28345580f091c21c463865137550e409eda362052e7fefe355f16bf1",
+  "deployer": "0xBb9E609bf277a0Ffb0018515d0a850037C2b17c3",
+  "status": "ACCEPTED",
+  "consensusResult": "MAJORITY_AGREE",
+  "executionResult": "SUCCESS",
+  "createdAt": "2026-10-21T01:12:45.487518+00:00"
+}

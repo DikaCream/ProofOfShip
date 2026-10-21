@@ -104,7 +104,7 @@ if (name === "reject") {
   run.doc.balanceDelta = { A: (await bal(A)) - start.A, B: dB };
   run.doc.reputation = await rep(A);
 } else if (name === "uncompleted") {
-  const { id, c } = await judgedWith([RAW + "ship/readme.md", RAW + "partial/changelog.md"], { rw: 60, title: "Ship tally CLI v1.0 (uncompleted challenge)" });
+  const { id, c } = await judgedWith([RAW + "ship/readme.md", RAW + "partial/changelog.md"], { rw: 300, title: "Ship tally CLI v1.0 (uncompleted challenge)" });
   await run.write("backer challenges, then nobody runs rule_challenge", B, "challenge", [id, GROUNDS, ""]);
   const mid = await get(id);
   await waitUntil(mid.challenge_due);

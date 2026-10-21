@@ -146,13 +146,17 @@ export default function Detail() {
           )}
           <Section code="F" title="Timeline">
             <ol className="space-y-1 border-l-4 border-ink pl-3 mono text-[12px]">
-              <li>{utc(c.created_at)} booked ({c.status === "REJECTED" ? "refused" : "screen passed"})</li>
-              {c.status !== "REJECTED" && <li>{utc(c.back_until)} backing closes</li>}
-              {c.proof_at > 0 && <li>{utc(c.proof_at)} proof submitted</li>}
-              {c.verdict_at > 0 && <li>{utc(c.verdict_at)} first verdict {c.first_verdict}</li>}
-              {c.challenged_at > 0 && <li>{utc(c.challenged_at)} challenged</li>}
-              {c.final_at > 0 && <li>{utc(c.final_at)} {c.status === "VOID" ? "voided" : "final"}: {c.outcome}. {c.settlement}</li>}
-              {c.status !== "REJECTED" && c.final_at === 0 && <li>{utc(c.deadline)} deadline</li>}
+              {([
+                [c.created_at, `booked (${c.status === "REJECTED" ? "refused" : "screen passed"})`],
+                c.status !== "REJECTED" ? [c.back_until, "backing closes"] : null,
+                c.proof_at > 0 ? [c.proof_at, "proof submitted"] : null,
+                c.verdict_at > 0 ? [c.verdict_at, `first verdict ${c.first_verdict}`] : null,
+                c.challenged_at > 0 ? [c.challenged_at, "challenged"] : null,
+                c.final_at > 0 ? [c.final_at, `${c.status === "VOID" ? "voided" : "final"}: ${c.outcome}. ${c.settlement}`] : null,
+                c.status !== "REJECTED" && c.final_at === 0 ? [c.deadline, "deadline"] : null,
+              ].filter(Boolean) as [number, string][])
+                .sort((x, y) => x[0] - y[0])
+                .map(([t, label], i) => <li key={i}>{utc(t)} {label}</li>)}
             </ol>
           </Section>
         </div>

@@ -1,0 +1,4 @@
+tally-cli 1.0.0 release report (final)
+
+This file is a stable test fixture for ProofOfShip. It is a separate document from the draft at the overlapping path .../report.
+Final confirmation: the tally export command writes a CSV file, the --json flag prints the export as JSON, and the README documents installation with npm.

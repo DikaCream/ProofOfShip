@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+/* Launch-control / shipping-manifest look: corrugated kraft, cargo labels, stencil type, hazard stripes,
+   split-flap departure boards. */
+@theme {
+  --font-stencil: var(--font-stencil), "Arial Black", sans-serif;
+  --font-body: var(--font-archivo), "Arial Narrow", sans-serif;
+  --font-mono: var(--font-plex), ui-monospace, monospace;
+  --color-kraft: #c99a5b;
+  --color-kraft-2: #b5844a;
+  --color-kraft-3: #8f6331;
+  --color-label: #f6f1e6;
+  --color-ink: #141210;
+  --color-ink-2: #4a4036;
+  --color-safety: #ff5b14;
+  --color-hazard: #ffd21f;
+  --color-board: #0f1113;
+  --color-board-2: #1b1e22;
+  --color-amber: #ffb627;
+  --color-go: #2e9e5b;
+  --color-halt: #d2261c;
+  --color-steel: #3d5a73;
+}
+
+html { background: var(--color-kraft-3); }
+body {
+  min-height: 100vh;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: var(--color-kraft);
+  background-image:
+    repeating-linear-gradient(90deg, rgba(0,0,0,.045) 0 2px, transparent 2px 9px),
+    radial-gradient(1400px 700px at 30% -10%, rgba(255,240,210,.35), transparent 60%);
+}
+
+.stencil { font-family: var(--font-stencil); letter-spacing: .04em; text-transform: uppercase; }
+.mono { font-family: var(--font-mono); }
+
+.hazard {
+  background: repeating-linear-gradient(-45deg, var(--color-hazard) 0 14px, var(--color-ink) 14px 28px);
+}
+.hazard-thin { height: 8px; background: repeating-linear-gradient(-45deg, var(--color-hazard) 0 8px, var(--color-ink) 8px 16px); }
+
+/* white cargo label with heavy border and a punched hole */
+.label {
+  position: relative;
+  background: var(--color-label);
+  border: 3px solid var(--color-ink);
+  box-shadow: 6px 6px 0 rgba(20,18,16,.85);
+}
+.label-hole::before {
+  content: ""; position: absolute; top: 12px; right: 12px; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--color-kraft); border: 2px solid var(--color-ink);
+}
+.cell { border: 2px solid var(--color-ink); padding: .35rem .55rem; }
+.tag { display: inline-block; border: 2px solid currentColor; padding: 0 .4rem; font-family: var(--font-stencil); letter-spacing: .06em; text-transform: uppercase; font-size: 12px; line-height: 1.6; }
+
+/* departure board */
+.board { background: var(--color-board); color: var(--color-amber); border: 4px solid #000; box-shadow: inset 0 0 0 2px #2a2e33, 6px 6px 0 rgba(20,18,16,.85); }
+.flap {
+  display: inline-block; font-family: var(--font-mono); font-weight: 600; color: var(--color-amber);
+  background: linear-gradient(#24282d 0 49%, #000 49% 51%, #1a1d21 51%); padding: .05rem .3rem; border-radius: 3px;
+  min-width: 1.1em; text-align: center; margin-right: 2px; box-shadow: inset 0 -1px 0 #000;
+}
+.board-row:hover { background: var(--color-board-2); }
+
+.btn {
+  font-family: var(--font-stencil); letter-spacing: .06em; text-transform: uppercase; border: 3px solid var(--color-ink);
+  background: var(--color-hazard); color: var(--color-ink); padding: .45rem 1rem; box-shadow: 4px 4px 0 var(--color-ink);
+  transition: transform .05s;
+}
+.btn:hover:not(:disabled) { transform: translate(-1px,-1px); box-shadow: 5px 5px 0 var(--color-ink); }
+.btn:active:not(:disabled) { transform: translate(3px,3px); box-shadow: 1px 1px 0 var(--color-ink); }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btn-dark { background: var(--color-ink); color: var(--color-hazard); }
+.btn-safety { background: var(--color-safety); color: var(--color-label); }
+
+.field { width: 100%; background: #fffdf8; border: 2px solid var(--color-ink); padding: .5rem .6rem; font-family: var(--font-mono); font-size: 14px; }
+.field:focus { outline: 3px solid var(--color-safety); outline-offset: 1px; }
+.kicker { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--color-ink-2); }
+a.link { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a.link:hover { color: var(--color-safety); }
+
+.barcode { height: 34px; background: repeating-linear-gradient(90deg, var(--color-ink) 0 2px, transparent 2px 4px, var(--color-ink) 4px 7px, transparent 7px 8px, var(--color-ink) 8px 9px, transparent 9px 12px); }
+.stamp-shipped { color: var(--color-go); }
+.stamp-partial { color: #b7791f; }
+.stamp-not { color: var(--color-halt); }
+.stamp-inc { color: var(--color-steel); }
+.rotate-stamp { transform: rotate(-6deg); }

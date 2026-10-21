@@ -1,0 +1,269 @@
+{
+  "demo": "browser-originated workflow (mock EIP-1193 provider, two browser contexts)",
+  "site": "https://proofofship.vercel.app",
+  "contract": "0x85B483C43FF276901eeCD1D7975a549d07C1cc02",
+  "startedAt": "2026-10-21T01:32:29.054Z",
+  "wallets": {
+    "builder": "0xBb9E609bf277a0Ffb0018515d0a850037C2b17c3",
+    "backer": "0x4114320e6217407814992C42DC4573ea85A00b60"
+  },
+  "steps": [
+    {
+      "step": "book commitment (attempt 1)",
+      "actor": "builder",
+      "tx_from_ui": "0xa46fe4c819968dac72127cb4c80b70a26a12c8c3e355382c56c2e17daaabf45b",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xa46fe4c819968dac72127cb4c80b70a26a12c8c3e355382c56c2e17daaabf45b",
+      "ui_outcome": "OK",
+      "seconds": 42
+    },
+    {
+      "step": "back 40 pts",
+      "actor": "backer",
+      "tx_from_ui": "0xd9c881d1c8296868d55b3b56923ff19a52223b404e393ad8c35bcb9a683571af",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xd9c881d1c8296868d55b3b56923ff19a52223b404e393ad8c35bcb9a683571af",
+      "ui_outcome": "OK",
+      "seconds": 39
+    },
+    {
+      "step": "submit proof",
+      "actor": "builder",
+      "tx_from_ui": "0x1bd44f72f447227ce1dde407993840ecf4bcd2dcb755ddb4a492c9dedfe09610",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x1bd44f72f447227ce1dde407993840ecf4bcd2dcb755ddb4a492c9dedfe09610",
+      "ui_outcome": "OK",
+      "seconds": 42
+    },
+    {
+      "step": "run inspection (AI verdict)",
+      "actor": "builder",
+      "tx_from_ui": "0x45737450da73d8a672b6b5659e96747c917a9a3b7099e6a835f5d3e457c87673",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x45737450da73d8a672b6b5659e96747c917a9a3b7099e6a835f5d3e457c87673",
+      "ui_outcome": "OK",
+      "seconds": 48
+    },
+    {
+      "step": "file challenge (bond 100)",
+      "actor": "backer",
+      "tx_from_ui": "0x7e454a551942923a9d10b63b4f4d87641c1dd7fca1ab3ce0158801f46bb49649",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0x7e454a551942923a9d10b63b4f4d87641c1dd7fca1ab3ce0158801f46bb49649",
+      "ui_outcome": "OK",
+      "seconds": 39
+    },
+    {
+      "step": "run challenge round (settlement)",
+      "actor": "backer",
+      "tx_from_ui": "0xc6c13f4af00c833baea3e72ec04021f9135c18c426afdedd3b6ac5e697f59d65",
+      "explorer": "https://explorer-studio.genlayer.com/transactions/0xc6c13f4af00c833baea3e72ec04021f9135c18c426afdedd3b6ac5e697f59d65",
+      "ui_outcome": "OK",
+      "seconds": 54
+    }
+  ],
+  "checks": [
+    {
+      "check": "UI navigated to the id returned by the create transaction receipt",
+      "pass": true,
+      "detail": {
+        "navigated_to": 15,
+        "count_before": 15,
+        "status": "OPEN"
+      }
+    },
+    {
+      "check": "backing recorded on-chain",
+      "pass": true,
+      "detail": {
+        "backed": 40
+      }
+    },
+    {
+      "check": "proof snapshotted by consensus",
+      "pass": true,
+      "detail": {
+        "sha256": "ae3e7ba4efd1a2aab8849589b5e6fde7ce98e163e0fa10e0bae7bb3527ac697d"
+      }
+    },
+    {
+      "check": "verdict stored with one structured finding per criterion",
+      "pass": true,
+      "detail": {
+        "verdict": "SHIPPED",
+        "findings": [
+          "MET",
+          "MET",
+          "MET"
+        ]
+      }
+    },
+    {
+      "check": "commitment FINAL after the challenge round, settled on-chain",
+      "pass": true,
+      "detail": {
+        "first": "SHIPPED",
+        "final": "SHIPPED",
+        "challenge": "UPHELD",
+        "bond": "FORFEITED",
+        "settlement": "builder received stake 50 + backing bounty 40"
+      }
+    },
+    {
+      "check": "every UI action ended FINALIZED + verified",
+      "pass": true,
+      "detail": "6 actions"
+    },
+    {
+      "check": "private keys never present in the page",
+      "pass": true
+    }
+  ],
+  "rpcMethodsSeenByNodeSigner": {
+    "eth_accounts": 16,
+    "eth_chainId": 16,
+    "eth_sendTransaction": 6
+  },
+  "commitment": {
+    "id": 15,
+    "final": {
+      "back_until": 1792548202,
+      "backed": 40,
+      "backers": 1,
+      "backing_open": false,
+      "bond_note": "FORFEITED",
+      "builder": "0xBb9E609bf277a0Ffb0018515d0a850037C2b17c3",
+      "challenge_attempts": 0,
+      "challenge_due": 1792550215,
+      "challenge_ends": 1792550152,
+      "challenge_grounds": "The proof overstates what shipped; please re-check every criterion against all sources.",
+      "challenge_open": false,
+      "challenge_result": "UPHELD",
+      "challenge_undetermined": 0,
+      "challenge_url": "",
+      "challenged_at": 1792546615,
+      "challenger": "0x4114320e6217407814992C42DC4573ea85A00b60",
+      "created_at": 1792546402,
+      "criteria": [
+        "The tally export command writes a CSV file",
+        "A --json flag prints the export as JSON",
+        "The README documents installation with npm"
+      ],
+      "criteria_count": 3,
+      "deadline": 1792550002,
+      "deliverable": "A command line tool called tally-cli that exports time logs to CSV and JSON, published with npm install documentation.",
+      "evidence_changed": false,
+      "final_at": 1792546660,
+      "first_verdict": "SHIPPED",
+      "id": 15,
+      "judge_due": 1792550102,
+      "now": 1792546714,
+      "outcome": "SHIPPED",
+      "proof_at": 1792546502,
+      "proof_type": "RELEASE",
+      "proof_urls": [
+        "https://raw.githubusercontent.com/DikaCream/ProofOfShip/d066a4a7972827b4f21ea0a311113618e9398dab/docs/evidence/ship/release-notes.md"
+      ],
+      "reject_reason": "",
+      "review_window": 3600,
+      "rounds": 2,
+      "settlement": "builder received stake 50 + backing bounty 40",
+      "stake": 50,
+      "status": "FINAL",
+      "title": "Browser demo: tally CLI v1.0 #95315",
+      "verdict": "SHIPPED",
+      "verdict_at": 1792546552
+    },
+    "rounds": [
+      {
+        "caller": "0xBb9E609bf277a0Ffb0018515d0a850037C2b17c3",
+        "changed": [],
+        "findings": [
+          {
+            "criterion": 0,
+            "fact": "The release notes explicitly state that the export command writes a CSV file.",
+            "quote": "The tally export command writes a CSV file named tally-export.csv to the current folder.",
+            "source": 0,
+            "status": "MET",
+            "url": "https://raw.githubusercontent.com/DikaCream/ProofOfShip/d066a4a7972827b4f21ea0a311113618e9398dab/docs/evidence/ship/release-notes.md"
+          },
+          {
+            "criterion": 1,
+            "fact": "The release notes confirm the existence and behavior of the --json flag for JSON output.",
+            "quote": "The new --json flag prints the export as JSON on standard output instead of writing CSV.",
+            "source": 0,
+            "status": "MET",
+            "url": "https://raw.githubusercontent.com/DikaCream/ProofOfShip/d066a4a7972827b4f21ea0a311113618e9398dab/docs/evidence/ship/release-notes.md"
+          },
+          {
+            "criterion": 2,
+            "fact": "The release notes reference README documentation for npm installation.",
+            "quote": "The README documents installation with npm: run npm install -g tally-cli and then run tally --version.",
+            "source": 0,
+            "status": "MET",
+            "url": "https://raw.githubusercontent.com/DikaCream/ProofOfShip/d066a4a7972827b4f21ea0a311113618e9398dab/docs/evidence/ship/release-notes.md"
+          }
+        ],
+        "incomplete": [],
+        "kind": "INITIAL",
+        "reasoning": "All criteria are directly confirmed by specific statements in the release notes. The source provides clear evidence for each required feature and documentation element.",
+        "sources": [
+          "https://raw.githubusercontent.com/DikaCream/ProofOfShip/d066a4a7972827b4f21ea0a311113618e9398dab/docs/evidence/ship/release-notes.md"
+        ],
+        "timestamp": 1792546552,
+        "verdict": "SHIPPED"
+      },
+      {
+        "caller": "0x4114320e6217407814992C42DC4573ea85A00b60",
+        "changed": [],
+        "findings": [
+          {
+            "criterion": 0,
+            "fact": "The release notes explicitly state the export command generates a CSV file.",
+            "quote": "The tally export command writes a CSV file named tally-export.csv to the current folder.",
+            "source": 0,
+            "status": "MET",
+            "url": "https://raw.githubusercontent.com/DikaCream/ProofOfShip/d066a4a7972827b4f21ea0a311113618e9398dab/docs/evidence/ship/release-notes.md"
+          },
+          {
+            "criterion": 1,
+            "fact": "The release notes confirm the addition of a flag for JSON output.",
+            "quote": "The new --json flag prints the export as JSON on standard output instead of writing CSV.",
+            "source": 0,
+            "status": "MET",
+            "url": "https://raw.githubusercontent.com/DikaCream/ProofOfShip/d066a4a7972827b4f21ea0a311113618e9398dab/docs/evidence/ship/release-notes.md"
+          },
+          {
+            "criterion": 2,
+            "fact": "The documentation section confirms the existence of npm installation instructions.",
+            "quote": "The README documents installation with npm: run npm install -g tally-cli and then run tally --version.",
+            "source": 0,
+            "status": "MET",
+            "url": "https://raw.githubusercontent.com/DikaCream/ProofOfShip/d066a4a7972827b4f21ea0a311113618e9398dab/docs/evidence/ship/release-notes.md"
+          }
+        ],
+        "incomplete": [],
+        "kind": "CHALLENGE",
+        "reasoning": "The provided release notes explicitly confirm the delivery of CSV export, the JSON flag functionality, and npm installation documentation as required by the criteria. Despite the challenge, the source text remains a stable fixture that directly addresses every acceptance criterion verbatim.",
+        "sources": [
+          "https://raw.githubusercontent.com/DikaCream/ProofOfShip/d066a4a7972827b4f21ea0a311113618e9398dab/docs/evidence/ship/release-notes.md"
+        ],
+        "timestamp": 1792546660,
+        "verdict": "SHIPPED"
+      }
+    ]
+  },
+  "uiPersistedTxRecords": [
+    {
+      "method": "judge",
+      "state": "CONFIRMED",
+      "hash": "0x45737450da73d8a672b6b5659e96747c917a9a3b7099e6a835f5d3e457c87673"
+    },
+    {
+      "method": "submit_proof",
+      "state": "CONFIRMED",
+      "hash": "0x1bd44f72f447227ce1dde407993840ecf4bcd2dcb755ddb4a492c9dedfe09610"
+    },
+    {
+      "method": "create_commitment",
+      "state": "CONFIRMED",
+      "hash": "0xa46fe4c819968dac72127cb4c80b70a26a12c8c3e355382c56c2e17daaabf45b"
+    }
+  ],
+  "finishedAt": "2026-10-21T01:38:43.378Z"
+}
